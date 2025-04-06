@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kevin Hong - Portfolio Work</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/other.css" rel="stylesheet" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+  </head>
+  <body class="work-page">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="https://kevinhong.dev/">KEVIN HONG</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="https://kevinhong.dev/">Home</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Projects  -->
+    <section id="projects">
+      <div class="container-fluid">
+        <div class="about-text">
+          <h3 class="section-title">Projects</h3>
+        </div>
+        <div class="project-container">
+          <div class="project-item fade-in">
+            <div class="project-image">
+              <a href="https://jingdabeautyspa.com/">
+                <img
+                  src="images/project1-preview.jpg"
+                  alt="Jingda's Beauty Spa Website"
+                />
+              </a>
+            </div>
+            <div class="project-details">
+              <h3>Jingda's Beauty Spa</h3>
+              <p class="project-description">
+                A bilingual beauty spa website built with Bootstrap, CSS3,
+                JavaScript, HTML5.
+              </p>
+
+              <a href="https://jingdabeautyspa.com/" class="view-website"
+                >View Website <span class="arrow">→</span></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="project-item fade-in reverse second-project">
+      <div class="project-details">
+        <h3>Young STEAM Visionaries</h3>
+        <p class="project-description">
+          A platform designed to inspire and educate young minds in Science,
+          Technology, Engineering, Arts, and Mathematics. Built with Bootstrap,
+          CSS3, JavaScript, HTML5.
+        </p>
+
+        <a href="https://youngsteamvisionaries.academy/" class="view-website"
+          >View Website <span class="arrow">→</span></a
+        >
+      </div>
+      <div class="project-image">
+        <a href="https://youngsteamvisionaries.academy/">
+          <img
+            src="images/project2-preview.jpg"
+            alt="Young STEAM Visionaries Website"
+          />
+        </a>
+      </div>
+    </div>
+    <!-- Contact  -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="about-text">
+          <h3 class="section-title">Get In Touch</h3>
+          <p class="contact-subtitle">
+            Have a question? Leave your details and I'll get back to you as soon
+            as possible.
+          </p>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-6 fade-in">
+            <form
+              id="contactForm"
+              class="contact-form"
+              action="https://formsubmit.co/kevin.hongyu@gmail.com"
+              method="POST"
+            >
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_next" value="thanks.html" />
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <input
+                    type="text"
+                    name="name"
+                    class="form-control"
+                    placeholder="First Name"
+                    required
+                  />
+                </div>
+                <div class="col-md-6 mb-4">
+                  <input
+                    type="text"
+                    name="lastName"
+                    class="form-control"
+                    placeholder="Last Name"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="mb-4">
+                <input
+                  type="email"
+                  name="email"
+                  class="form-control"
+                  placeholder="Email Address"
+                  required
+                />
+              </div>
+              <div class="mb-4">
+                <textarea
+                  name="message"
+                  class="form-control"
+                  rows="6"
+                  placeholder="Your Message"
+                  required
+                ></textarea>
+              </div>
+              <div class="submit-wrapper">
+                <button type="submit" class="submit-btn">Submit</button>
+                <div class="submit-accent"></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const formData = new FormData(this);
+          const submitButton = this.querySelector('button[type="submit"]');
+          submitButton.disabled = true;
+          submitButton.textContent = "Sending...";
+
+          fetch("https://formsubmit.co/ajax/kevin.hongyu@gmail.com", {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+            },
+            body: formData,
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log(data);
+              window.location.href = "thanks.html";
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+              alert(
+                "There was an error sending your message. Please try again."
+              );
+            })
+            .finally(() => {
+              submitButton.disabled = false;
+              submitButton.textContent = "Submit";
+            });
+        });
+    </script>
+    <script src="javascript/other.js"></script>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-info">
+            <a href="tel:+1234567890">Phone: (631) 590-0209</a>
+            <a href="mailto:your.email@example.com"
+              >Email: kevin.hongyu@gmail.com</a
+            >
+          </div>
+          <div class="copyright">© 2024 Kevin Hong. All rights reserved.</div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
